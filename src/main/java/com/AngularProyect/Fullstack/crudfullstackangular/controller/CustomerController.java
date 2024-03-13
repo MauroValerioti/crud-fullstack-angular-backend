@@ -11,6 +11,7 @@ import java.util.List;
 @RestController
 //http://localhost:8080/api/customers
 @RequestMapping("/api/customers")         //identifica un recurso unico en el backend. Una Uri como atributo
+@CrossOrigin(origins = "http://localhost:4200")//indica desde donde puedo hacer peticiones Http
 public class CustomerController {
 
 
@@ -28,7 +29,7 @@ public class CustomerController {
         return customerService.save(customer);
     }
 
-    //URL: localhost:8080/api/customers/
+    //URL: localhost:8080/api/customers
     @GetMapping //permite manejar peticiones del tipo GET.
     public List<Customer> findAll(){
         return customerService.findAll();

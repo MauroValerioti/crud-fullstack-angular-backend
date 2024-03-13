@@ -35,10 +35,11 @@ public class CustomerServiceImpl implements CustomerService{
     public Customer findById(Integer id) {
         Customer customer = customerRepository.findById(id).orElseThrow(
                 ()->{
-                    throw new ResourceNotFoundExeption();
+                    throw new ResourceNotFoundExeption("El consumidor con el id "+id+" no existe!");   //en caso de que venga vacio manejo la excepcion.
                 }
         );
-        return customerRepository.findById(id).get(); //como retorna un optinal tengo que usar el metodo get
+        //return customerRepository.findById(id).get(); //como retorna un optinal tengo que usar el metodo get
+        return customer;
     }
 
     @Override
